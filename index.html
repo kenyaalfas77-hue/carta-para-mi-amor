@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy 1 Year 7 Months, My Love 💚</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: #164e32;
+            color: #fffbea;
+            min-height: 100vh;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .page.active {
+            display: flex;
+            animation: appear 0.8s ease;
+        }
+
+        /* PORTADA */
+
+        #home {
+            background: linear-gradient(
+                145deg,
+                #0c3824,
+                #267449,
+                #145536
+            );
+        }
+
+        .heart {
+            font-size: 65px;
+            margin-bottom: 25px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        h1 {
+            font-size: clamp(30px, 7vw, 55px);
+            line-height: 1.4;
+            letter-spacing: 2px;
+            max-width: 850px;
+            text-shadow: 0 0 20px #b8f5c2;
+        }
+
+        .subtitle {
+            margin-top: 22px;
+            font-size: 18px;
+            color: #d4f5d7;
+            font-style: italic;
+        }
+
+        .button {
+            margin-top: 35px;
+            padding: 16px 35px;
+            border: 2px solid #fffbea;
+            border-radius: 30px;
+            background: #fffbea;
+            color: #164e32;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.25s;
+            box-shadow: 0 5px 20px #092c1b66;
+        }
+
+        .button:hover {
+            background: #c6f6cb;
+            transform: translateY(-3px);
+        }
+
+        /* PÁGINA DE LA PREGUNTA */
+
+        #question {
+            background: linear-gradient(
+                145deg,
+                #0c3824,
+                #267449,
+                #145536
+            );
+            overflow: hidden;
+            position: relative;
+        }
+
+        .question-heart {
+            font-size: 65px;
+            margin-bottom: 25px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        .question-title {
+            font-size: clamp(28px, 6vw, 43px);
+            line-height: 1.4;
+            max-width: 650px;
+            text-shadow: 0 0 15px #b8f5c2;
+        }
+
+        .question-subtitle {
+            margin-top: 15px;
+            color: #d4f5d7;
+            font-size: 17px;
+        }
+
+        .answers {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 35px;
+            width: 100%;
+            min-height: 65px;
+        }
+
+        .yes-button,
+        .no-button {
+            min-width: 105px;
+            padding: 14px 27px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 20px #092c1b66;
+        }
+
+        .yes-button {
+            background: #fffbea;
+            color: #164e32;
+            transition: 0.25s;
+        }
+
+        .yes-button:hover {
+            background: #c6f6cb;
+            transform: scale(1.08);
+        }
+
+        .no-button {
+            background: #f2d6d6;
+            color: #7d2525;
+            position: relative;
+            z-index: 10;
+            touch-action: none;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* CARTA DE AMOR */
+
+        #letter {
+            background: linear-gradient(
+                160deg,
+                #103b27,
+                #1d6841,
+                #164e32
+            );
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .letter-card {
+            width: 100%;
+            max-width: 780px;
+            padding: clamp(25px, 6vw, 50px);
+            border: 1px solid #b7e6bd80;
+            border-radius: 22px;
+            background: #ffffff0d;
+            box-shadow: 0 10px 40px #092c1b55;
+            text-align: left;
+        }
+
+        .letter-title {
+            text-align: center;
+            font-size: clamp(27px, 5vw, 38px);
+            margin-bottom: 30px;
+            color: #e0f7d9;
+        }
+
+        .letter-text {
+            font-size: 17px;
+            line-height: 1.95;
+            color: #fffbea;
+            white-space: pre-line;
+            overflow-wrap: anywhere;
+        }
+
+        .final-heart {
+            text-align: center;
+            font-size: 45px;
+            margin-top: 30px;
+        }
+
+        .back-button {
+            margin-top: 30px;
+        }
+
+        /* ANIMACIONES */
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .letter-text {
+                font-size: 15px;
+                line-height: 1.85;
+            }
+
+            .letter-card {
+                padding: 24px 20px;
+            }
+
+            .heart,
+            .question-heart {
+                font-size: 55px;
+            }
+
+            .answers {
+                gap: 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page.active,
+            .heart,
+            .question-heart {
+                animation: none;
+            }
+
+            .button,
+            .yes-button {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PÁGINA 1: PORTADA -->
+
+    <section id="home" class="page active">
+
+        <div class="heart">💚</div>
+
+        <h1>HAPPY 1 YEAR 7 MONTHS MY LOVE 🫶🏾</h1>
+
+        <p class="subtitle">
+            Every day with you is a beautiful gift.
+        </p>
+
+        <button
+            class="button"
+            onclick="showQuestion()">
+            Continuar....
+        </button>
+
+    </section>
+
+
+    <!-- PÁGINA 2: PREGUNTA -->
+
+    <section id="question" class="page">
+
+        <div class="question-heart">💌</div>
+
+        <h2 class="question-title">
+            Do you want to read something?
+        </h2>
+
+        <p class="question-subtitle">
+            I have something special for you... 💚
+        </p>
+
+        <div class="answers">
+
+            <button
+                class="yes-button"
+                onclick="showLetter()">
+                Yes 💚
+            </button>
+
+            <button
+                class="no-button"
+                id="noButton"
+                type="button">
+                No 🙈
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PÁGINA 3: CARTA -->
+
+    <section id="letter" class="page">
+
+        <div class="letter-card">
+
+            <h2 class="letter-title">
+                To the love of my life 💚
+            </h2>
+
+            <div class="letter-text">My love, today I wanted to express how grateful I am to you. Being by your side is one of the best things that has ever happened to me. This year and seven months have only made me fall more and more in love with you with each passing day. I want to remind you how much you mean to me. Thank you so much for being there for me in every big and small moment. With you, everything feels lighter and easier to bear.
+
+You are one of the most important and special people in my life. You give me a reason to smile and keep going every day when I wake up. I love you so much that sometimes it's hard for me to express it because there aren't enough words to tell you. There are millions of things I'd like to say to you, but my words fall short of describing it, perhaps because there's no way to express what I feel. The human words I have aren't enough to describe it. What I feel for you encompasses everything from known languages to unknown ones.
+
+You are one of the most important and special people in my life. If I had the chance to live another life, I would choose to love you a thousand times over, in this one, in another life, and in all the lives my soul is allowed to have, because this love I feel for you doesn't just encompass my heart, it encompasses my soul. I love you with all my soul, because the soul never forgets. Even if the body dies, my soul will always remember you; it will never forget, and certainly not a love as great and pure as the one I feel for you.</div>
+
+            <div class="final-heart">💚 ♡ 💚</div>
+
+        </div>
+
+        <button
+            class="button back-button"
+            onclick="showQuestion()">
+            ← Back
+        </button>
+
+    </section>
+
+
+    <!-- NAVEGACIÓN -->
+
+    <script>
+        function changePage(pageId) {
+            document.querySelectorAll(".page").forEach(page => {
+                page.classList.remove("active");
+            });
+
+            document.getElementById(pageId).classList.add("active");
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+            // Al regresar a la pregunta, restablecer el botón.
+            if (pageId === "question") {
+                resetNoButton();
+            }
+        }
+
+        function showQuestion() {
+            changePage("question");
+        }
+
+        function showLetter() {
+            changePage("letter");
+        }
+
+        function showHome() {
+            changePage("home");
+        }
+
+
+        // BOTÓN "NO": ¡ATRÁPALO SI PUEDES! 😂💚
+
+        const noButton = document.getElementById("noButton");
+        const questionPage = document.getElementById("question");
+
+        function moveNoButton() {
+            if (!questionPage.classList.contains("active")) {
+                return;
+            }
+
+            const margin = 12;
+
+            const buttonWidth = noButton.offsetWidth;
+            const buttonHeight = noButton.offsetHeight;
+
+            const maxX = Math.max(
+                margin,
+                window.innerWidth - buttonWidth - margin
+            );
+
+            const maxY = Math.max(
+                margin,
+                window.innerHeight - buttonHeight - margin
+            );
+
+            const randomX =
+                margin + Math.random() * (maxX - margin);
+
+            const randomY =
+                margin + Math.random() * (maxY - margin);
+
+            noButton.style.position = "fixed";
+            noButton.style.left = randomX + "px";
+            noButton.style.top = randomY + "px";
+            noButton.style.margin = "0";
+        }
+
+        function resetNoButton() {
+            noButton.style.position = "relative";
+            noButton.style.left = "";
+            noButton.style.top = "";
+            noButton.style.margin = "";
+        }
+
+        // Computadora: huye cuando el cursor se acerca.
+        noButton.addEventListener("pointerenter", function(event) {
+            if (event.pointerType === "mouse") {
+                moveNoButton();
+            }
+        });
+
+        // Celular: huye al intentar tocarlo.
+        noButton.addEventListener("touchstart", function(event) {
+            event.preventDefault();
+            moveNoButton();
+        }, { passive: false });
+
+        // También escapa al intentar hacer clic.
+        noButton.addEventListener("click", function(event) {
+            event.preventDefault();
+            moveNoButton();
+        });
+
+        // Evitar que el botón quede fuera de pantalla.
+        window.addEventListener("resize", function() {
+            if (
+                questionPage.classList.contains("active") &&
+                noButton.style.position === "fixed"
+            ) {
+                moveNoButton();
+            }
+        });
+    </script>
+
+</body>
+</html>
